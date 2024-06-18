@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>02_步骤器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 内容区 -->
+    <div class="container">
+        <!-- 步骤盒子 -->
+        <div class="progress-container">
+            <!-- 蓝色进度条 -->
+            <div class="progress" id="progress"></div>
+            <!-- 圆形数字步骤 -->
+            <div class="circle active">1</div>
+            <div class="circle">2</div>
+            <div class="circle">3</div>
+            <div class="circle">4</div>
+        </div>
+        <!-- 按钮，控制步骤前进后退 -->
+        <button type="button" class="btn" id="prev" disabled>Prev</button>
+        <button type="button" class="btn" id="next">Next</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

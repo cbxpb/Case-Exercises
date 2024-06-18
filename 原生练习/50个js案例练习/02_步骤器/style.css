@@ -1,0 +1,114 @@
+/* 设置颜色的自定义属性，方便后续使用 */
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: #383838;
+}
+
+/* 初始化样式 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 设置body，让整个容器居中 */
+body {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 容器中的行内元素水平居中 */
+.container {
+    text-align: center;
+}
+
+/* 步骤的总体盒子 */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    /* 可以直接使用弹性盒子的align-items属性让进度条居中,后面就可以不用绝对定位的方法做 */
+    /* align-items: center; */
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+    position: relative;
+}
+
+/* 灰色进度条样式 */
+.progress-container::before {
+    content: '';
+    background-color: var(--line-border-empty);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    /* 使用绝对定位让进度条居中 */
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+/* 蓝色进度条 */
+.progress {
+    background-color: var(--line-border-fill);
+    height: 4px;
+    width: 0%;
+    position: absolute;
+    /* 使用绝对定位让进度条居中 */
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .4s ease;
+}
+
+/* 圆形样式 */
+.circle {
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--line-border-empty);
+}
+
+/* 蓝色圆形样式 */
+.circle.active {
+    border-color: var(--line-border-fill);
+}
+
+/* 按钮 */
+.btn {
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+/*按钮被激活*/
+.btn:active {
+    transform: scale(0.98);
+}
+
+/*按钮获取焦点时移除默认的外边框样式*/
+.btn:focus {
+    outline: 0;
+}
+
+/*按钮禁用的样式*/
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    /*禁止点击的样式*/
+    cursor: not-allowed;
+  }
